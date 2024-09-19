@@ -1,11 +1,17 @@
 import { List, Box, Typography, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { CustomizedSidebar, CustomizedDivider } from './styled'
-import sidebarNavs from './data'
+import { useNavigate } from 'react-router-dom'
+import { sidebarNavs } from './data'
+import useSelectedSidebarItem from '@hooks/useSelectedSidebarItem'
 import uaLocale from '@utils/locales/ua'
 
 const Sidebar = () => {
+  const navigate = useNavigate()
+
+  const selectedKey = useSelectedSidebarItem()
+
   return (
-    <CustomizedSidebar anchor='left' variant='persistent' open={true}>
+    <CustomizedSidebar anchor='left' variant='permanent' open={true}>
         <Box p={2} sx={{ display: 'flex' }}>
            <Typography>
              {uaLocale.networkTitle}
@@ -17,10 +23,12 @@ const Sidebar = () => {
         <Box p={2}>
           <List>
              {
-              sidebarNavs.map((navItem) => (
-                <ListItemButton key={navItem.title}>
-                  <ListItemIcon></ListItemIcon>
-                  <ListItemText>{navItem.title}</ListItemText>
+              sidebarNavs.map(({ title, path, icon, key }) => (
+                <ListItemButton key={key} onClick={() => navigate(path)} selected={key === selectedKey}>
+                  <ListItemIcon sx={{ color: '#fff' }}>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText>{title}</ListItemText>
                 </ListItemButton>
               ))
              }

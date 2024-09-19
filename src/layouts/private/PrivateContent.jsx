@@ -1,22 +1,40 @@
-import React from 'react'
-import Dropdown from '@components/Dropdown/Dropdown'
-import { Button, Box, Grid2, Stack } from '@mui/material'
+import React, { Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
+import { CustomizedMain, CustomizedHeader } from './Sidebar/styled'
+import { sidebarNavs } from './Sidebar/data'
+
+import AvatarPanel from './AvatarPanel/AvatarPanel'
+import Breadcrumbs from './Breadcrumbs/Breadcrumbs'
 import Sidebar from './Sidebar/Sidebar'
 
 const PrivateContent = () => {
     return (
-        <Box>
+        <>
            <Sidebar />
-           <Box component='main' sx={{ display: 'flex', height: '100%', justifyContent: 'center', width: '100%' }}>
-            <Stack spacing={2}>
-                <Grid2>
-                    Content grid
-
-                    <Button variant='contained'>Test</Button>
-                </Grid2>
-            </Stack>
-           </Box>
-        </Box>
+           <CustomizedHeader>
+                <Breadcrumbs />
+                <AvatarPanel />
+            </CustomizedHeader>
+           <CustomizedMain>
+            <Routes>
+                {
+                    sidebarNavs.map(({ path, component: Component, key }) => {
+                        return (
+                            <Route 
+                              path={path} 
+                              element={
+                                <Suspense fallback={<></>}>
+                                    <Component />
+                                </Suspense>
+                              } 
+                              key={key} 
+                            />
+                        )
+                    })
+                }
+            </Routes>
+           </CustomizedMain>
+        </>
       )
 }
 
