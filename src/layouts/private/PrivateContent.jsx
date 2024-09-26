@@ -11,7 +11,7 @@ const PrivateContent = () => {
     return (
         <>
            <Sidebar />
-           <CustomizedHeader>
+           <CustomizedHeader boxShadow={4}>
                 <Breadcrumbs />
                 <AvatarPanel />
             </CustomizedHeader>
@@ -23,7 +23,7 @@ const PrivateContent = () => {
                             <Route 
                               path={path} 
                               element={
-                                <Suspense fallback={<></>}>
+                                <Suspense fallback={<>Loading...</>}>
                                     <Component />
                                 </Suspense>
                               } 

@@ -2,6 +2,7 @@ import { List, Box, Typography, ListItemButton, ListItemIcon, ListItemText } fro
 import { CustomizedSidebar, CustomizedDivider } from './styled'
 import { useNavigate } from 'react-router-dom'
 import { sidebarNavs } from './data'
+import clientThemeConfig from '@utils/theme'
 import useSelectedSidebarItem from '@hooks/useSelectedSidebarItem'
 import uaLocale from '@utils/locales/ua'
 
@@ -25,7 +26,7 @@ const Sidebar = () => {
              {
               sidebarNavs.map(({ title, path, icon, key }) => (
                 <ListItemButton key={key} onClick={() => navigate(path)} selected={key === selectedKey}>
-                  <ListItemIcon sx={{ color: '#fff' }}>
+                  <ListItemIcon sx={{ color: clientThemeConfig.palette.secondary.contrastText }}>
                     {icon}
                   </ListItemIcon>
                   <ListItemText>{title}</ListItemText>

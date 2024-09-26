@@ -26,16 +26,20 @@ export const CustomizedMain = styled(Box)(() => ({
     justifyContent: 'flex-start',
     height: `calc(100vh - ${headerHeight}px)`,
     marginLeft: `${sidebarWidth}px`,
+    marginTop: `${headerHeight}px`,
     padding: '36px 10px',
 }))
 
-export const CustomizedHeader = styled(Box)(({ theme }) => ({
+export const CustomizedHeader = styled(Box)(() => ({
     alignItems: 'center',
     backgroundColor: '#F0F2F5',
-    boxShadow: `0px 15px 10px -15px ${theme.palette.secondary.dark}`,
     display: 'flex',
     height: `${headerHeight}px`,
     justifyContent: 'space-between',
     marginLeft: `${sidebarWidth}px`,
+    position: 'fixed',
     padding: '0 10px',
+    zIndex: 999,
+    width: '100%',
+    top: 0
 }))
