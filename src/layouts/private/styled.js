@@ -39,7 +39,14 @@ export const CustomizedHeader = styled(Box)(() => ({
     marginLeft: `${sidebarWidth}px`,
     position: 'fixed',
     padding: '0 10px',
-    zIndex: 999,
     width: '100%',
     top: 0
+}))
+
+export const CustomizedAvatar = styled("div")(({ theme }) => ({
+    color: theme.palette.text.primary,
+    cursor: 'pointer',
+    position: 'fixed',
+    right: '16px',
+    top: '15px'
 }))

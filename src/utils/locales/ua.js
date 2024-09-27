@@ -7,7 +7,12 @@ const uaLocale = {
         { name: 'Чати' },
         { name: 'Аудіо' },
         { name: 'Відео' },
-    ]
+    ],
+    avatarOptions: {
+        profile: 'Профіль',
+        settings: 'Налаштування',
+        logout: 'Вийти'
+    }
 }
 
 export default uaLocale
