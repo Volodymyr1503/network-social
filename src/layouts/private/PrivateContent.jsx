@@ -1,6 +1,6 @@
 import React, { Suspense } from 'react'
 import { Routes, Route } from 'react-router-dom'
-import { CustomizedMain, CustomizedHeader } from './Sidebar/styled'
+import { CustomizedMain, CustomizedHeader } from './styled'
 import { sidebarNavs } from './Sidebar/data'
 
 import AvatarPanel from './AvatarPanel/AvatarPanel'

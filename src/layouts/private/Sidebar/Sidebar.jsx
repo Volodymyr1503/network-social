@@ -1,5 +1,5 @@
 import { List, Box, Typography, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
-import { CustomizedSidebar, CustomizedDivider } from './styled'
+import { CustomizedSidebar, CustomizedDivider } from '../styled'
 import { useNavigate } from 'react-router-dom'
 import { sidebarNavs } from './data'
 import clientThemeConfig from '@utils/theme'
@@ -25,7 +25,11 @@ const Sidebar = () => {
           <List>
              {
               sidebarNavs.map(({ title, path, icon, key }) => (
-                <ListItemButton key={key} onClick={() => navigate(path)} selected={key === selectedKey}>
+                <ListItemButton 
+                  key={key} 
+                  onClick={() => navigate(path)} 
+                  selected={key === selectedKey}
+                >
                   <ListItemIcon sx={{ color: clientThemeConfig.palette.secondary.contrastText }}>
                     {icon}
                   </ListItemIcon>

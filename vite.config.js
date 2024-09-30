@@ -10,7 +10,8 @@ export default defineConfig({
       '@layouts': '/src/layouts',
       '@pages': '/src/pages',
       '@utils': '/src/utils',
-      '@hooks': '/src/hooks'
+      '@hooks': '/src/hooks',
+      '@HOCs': '/src/HOCs'
     },
   },
 })
