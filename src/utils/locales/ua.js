@@ -12,6 +12,13 @@ const uaLocale = {
         profile: 'Профіль',
         settings: 'Налаштування',
         logout: 'Вийти'
+    },
+    dashboard: {
+        moneyCards: {
+            total: 'Total Balance',
+            spending: 'Total Spending',
+            saved: 'Money Saved'
+        }
     }
 }
 

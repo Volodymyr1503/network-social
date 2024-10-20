@@ -1,14 +1,15 @@
 import React from 'react'
-import { Box } from '@mui/material'
+import { Typography } from '@mui/material'
+
+import CardsLayout from './CardsLayout'
+import { topicMoneyCards } from './data'
 
 const Dashboard = () => {
   return (
-    <div>
-      Dashboard
+    <div style={{ width: '100%' }}>
+      <Typography variant='h3'>Гаманець</Typography>
 
-      <Box sx={{ backgroundColor: '#fff', padding: '24px' }}>
-        Some Content
-      </Box>
+      <CardsLayout items={topicMoneyCards} />
     </div>
   )
 }
