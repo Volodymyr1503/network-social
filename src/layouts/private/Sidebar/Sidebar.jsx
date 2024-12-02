@@ -29,6 +29,7 @@ const Sidebar = () => {
                   key={key} 
                   onClick={() => navigate(path)} 
                   selected={key === selectedKey}
+                  role='button'
                 >
                   <ListItemIcon sx={{ color: clientThemeConfig.palette.secondary.contrastText }}>
                     {icon}

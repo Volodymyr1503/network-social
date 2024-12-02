@@ -1,4 +1,4 @@
-import { ThemeProvider, Container, CssBaseline } from '@mui/material'
+import { ThemeProvider, CssBaseline } from '@mui/material'
 import clientThemeConfig from '@utils/theme'
 import PrivateContent from '@layouts/private/PrivateContent'
 
