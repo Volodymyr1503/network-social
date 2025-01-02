@@ -1,4 +1,4 @@
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter, MemoryRouter } from 'react-router-dom'
 
 import Breadcrumbs from '../src/layouts/private/Breadcrumbs/Breadcrumbs'
 import App from '../src/App'
@@ -42,5 +42,13 @@ export const PrivateContentRenderer = () => {
         <BrowserRouter>
            <PrivateContent />
         </BrowserRouter>
+    )
+}
+
+export const MemorizedSidebar = (link) => {
+    return (
+        <MemoryRouter initialEntries={[link]}>
+            <Sidebar />
+        </MemoryRouter>
     )
 }

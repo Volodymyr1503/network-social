@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { beforeAll, beforeEach, describe, expect } from 'vitest'
-import { AppRenderer, BreadcrumbsRenderer, SidebarRenderer, PrivateContentRenderer } from './utils'
+import { beforeEach, describe, expect } from 'vitest'
+import { BreadcrumbsRenderer, PrivateContentRenderer } from './utils'
 import { sidebarNavs } from '../src/layouts/private/Sidebar/data'
 import uaLocale from '../src/utils/locales/ua'
 
@@ -38,6 +38,14 @@ describe('App', () => {
 
       const approppriateEl = await screen.findByText('Friends')
       expect(approppriateEl).toBeInTheDocument()
+    })
+
+    it('Should highlight active link in the Sidebar according to the path', () => {
+      const firstNavItem = screen.getByText(sidebarNavs[0].title)
+      fireEvent.click(firstNavItem)
+
+      const activeLink = screen.getByRole('button', { name: sidebarNavs[0].title })
+      expect(activeLink).toHaveClass('Mui-selected')
     })
   })
 })
