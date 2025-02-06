@@ -8,52 +8,55 @@ import clientThemeConfig from '@utils/theme'
 import classNames from 'classnames'
 
 const StyledChipBreadcrumb = styled('div')(({ theme }) => {
-    return {
-      alignItems: 'center',
-      backgroundColor: theme.palette.grey[400],
-      borderRadius: '12px',
-      color: theme.palette.text.primary,
-      display: 'flex',
-      justifyContent: 'center',
-      padding: '6px 12px',
+  return {
+    alignItems: 'center',
+    backgroundColor: theme.palette.grey[400],
+    borderRadius: '12px',
+    color: theme.palette.text.primary,
+    display: 'flex',
+    justifyContent: 'center',
+    padding: '6px 12px',
 
-      '&:hover': {
-        cursor: 'pointer'
-      },
+    '&:hover': {
+      cursor: 'pointer'
+    },
 
-      '&.last': {
-        backgroundColor: theme.palette.grey[300],
-        cursor: 'default',
-        pointerEvents: 'none'
-      }
-    };
+    '&.last': {
+      backgroundColor: theme.palette.grey[300],
+      cursor: 'default',
+      pointerEvents: 'none'
+    }
+  }
 })
 
 const Breadcrumbs = () => {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
-    const breadcrumbs = useBreadcrumbs()
+  const breadcrumbs = useBreadcrumbs()
 
   return (
-    <div className='breadcrumbs-wrapper'>
-        <MUIBreadcrumbs maxItems={4}>
-            <StyledChipBreadcrumb onClick={() => navigate('/')}>
-               <Home fontSize='middle' color={clientThemeConfig.palette.primary.main} />
+    <div className="breadcrumbs-wrapper">
+      <MUIBreadcrumbs maxItems={4}>
+        <StyledChipBreadcrumb onClick={() => navigate('/')}>
+          <Home
+            fontSize="middle"
+            color={clientThemeConfig.palette.primary.main}
+          />
+        </StyledChipBreadcrumb>
+        {breadcrumbs.map((el, idx) => {
+          return (
+            <StyledChipBreadcrumb
+              key={el.title}
+              onClick={() => navigate(el.path)}
+              className={classNames('', {
+                last: idx === breadcrumbs.length - 1
+              })}
+            >
+              <Typography sx={{ fontSize: '11px' }}>{el.title}</Typography>
             </StyledChipBreadcrumb>
-            {
-                breadcrumbs.map((el, idx) => {
-                    return (
-                        <StyledChipBreadcrumb 
-                            key={el.title} 
-                            onClick={() => navigate(el.path)}
-                            className={classNames('', { last: idx === breadcrumbs.length - 1 })}
-                        >
-                            <Typography sx={{ fontSize: '11px' }}>{el.title}</Typography>
-                        </StyledChipBreadcrumb>
-                    )
-                })
-            }
-        </MUIBreadcrumbs>
+          )
+        })}
+      </MUIBreadcrumbs>
     </div>
   )
 }

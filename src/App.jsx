@@ -3,12 +3,11 @@ import clientThemeConfig from '@utils/theme'
 import PrivateContent from '@layouts/private/PrivateContent'
 
 function App() {
-
   return (
-      <ThemeProvider theme={clientThemeConfig}>
-         <CssBaseline />
-         <PrivateContent />
-      </ThemeProvider>
+    <ThemeProvider theme={clientThemeConfig}>
+      <CssBaseline />
+      <PrivateContent />
+    </ThemeProvider>
   )
 }
 

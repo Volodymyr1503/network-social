@@ -1,14 +1,17 @@
 import React from 'react'
-import { Box } from '@mui/material'
+
+import MainTrendCards from './sectors/MainTrendCards'
+
+import { getDashboardUtils } from './data'
+
+const { mainTopics, onRenderDashboardLayout } = getDashboardUtils()
 
 const Dashboard = () => {
   return (
-    <div>
-      Dashboard
+    <div style={{ width: '100%' }}>
+      <MainTrendCards items={mainTopics} />
 
-      <Box sx={{ backgroundColor: '#fff', padding: '24px' }}>
-        Some Content
-      </Box>
+      {onRenderDashboardLayout()}
     </div>
   )
 }

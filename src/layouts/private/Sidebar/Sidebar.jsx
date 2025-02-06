@@ -1,4 +1,11 @@
-import { List, Box, Typography, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
+import {
+  List,
+  Box,
+  Typography,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText
+} from '@mui/material'
 import { CustomizedSidebar, CustomizedDivider } from '../styled'
 import { useNavigate } from 'react-router-dom'
 import { sidebarNavs } from './data'
@@ -12,33 +19,31 @@ const Sidebar = () => {
   const selectedKey = useSelectedSidebarItem()
 
   return (
-    <CustomizedSidebar anchor='left' variant='permanent' open={true}>
-        <Box p={2} sx={{ display: 'flex' }}>
-           <Typography>
-             {uaLocale.networkTitle}
-           </Typography>
-        </Box>
+    <CustomizedSidebar anchor="left" variant="permanent" open={true}>
+      <Box p={2} sx={{ display: 'flex' }}>
+        <Typography>{uaLocale.networkTitle}</Typography>
+      </Box>
 
-        <CustomizedDivider variant='middle' sx={{ opacity: '0.9' }} />
+      <CustomizedDivider variant="middle" sx={{ opacity: '0.9' }} />
 
-        <Box p={2}>
-          <List>
-             {
-              sidebarNavs.map(({ title, path, icon, key }) => (
-                <ListItemButton 
-                  key={key} 
-                  onClick={() => navigate(path)} 
-                  selected={key === selectedKey}
-                >
-                  <ListItemIcon sx={{ color: clientThemeConfig.palette.secondary.contrastText }}>
-                    {icon}
-                  </ListItemIcon>
-                  <ListItemText>{title}</ListItemText>
-                </ListItemButton>
-              ))
-             }
-           </List>
-        </Box>
+      <Box p={2}>
+        <List>
+          {sidebarNavs.map(({ title, path, icon, key }) => (
+            <ListItemButton
+              key={key}
+              onClick={() => navigate(path)}
+              selected={key === selectedKey}
+            >
+              <ListItemIcon
+                sx={{ color: clientThemeConfig.palette.secondary.contrastText }}
+              >
+                {icon}
+              </ListItemIcon>
+              <ListItemText>{title}</ListItemText>
+            </ListItemButton>
+          ))}
+        </List>
+      </Box>
     </CustomizedSidebar>
   )
 }
