@@ -1,0 +1,1 @@
+import{j as t,S as r}from"./index-CQwiO5uf.js";import{g as o}from"./Dashboard-DiLVeUk6.js";const{onRenderChartsLayout:s}=o(),n=()=>t.jsx(r,{direction:"row",spacing:4,children:s()});export{n as default};

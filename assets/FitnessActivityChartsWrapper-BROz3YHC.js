@@ -1,0 +1,1 @@
+import{j as r,S as t}from"./index-CQwiO5uf.js";import{C as i}from"./Dashboard-DiLVeUk6.js";import p from"./SimpleBarChart-S3JenSN0.js";import"./generateCategoricalChart-DuRVXbPy.js";import"./YAxis-p9FyoFA4.js";const h=()=>r.jsx(t,{direction:"row",spacing:4,children:r.jsx(i,{height:"500px",width:"100%",title:"Хронологія прогресу",children:r.jsx(p,{})})});export{h as default};
